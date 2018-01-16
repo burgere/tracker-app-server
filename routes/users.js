@@ -8,7 +8,7 @@ var config = require('../config');
  router.get('/', function(req, res, next) {
    
    axios.get( 
-     config.TRACKER_API_BASE_URL + '/projects/' + config.PROJECT_IDS.astronaut, {
+     config.TRACKER_API_BASE_URL + '/projects/' + config.PROJECT_IDS.astronaut + '/stories?with_state=started', {
      headers: {
        'X-TrackerToken': config.TRACKER_API_TOKEN
       }
