@@ -1,5 +1,6 @@
 var express = require('express');
 var axios = require('axios');
+var circularJson = require('circular-json');
 var router = express.Router();
 var config = require('../config');
 
@@ -14,8 +15,7 @@ var config = require('../config');
       }
     })
         .then((response) => {
-        console.log(response.body);
-       res.json(response.body)
+          res.json(circularJson.stringify(response))
      }) 
   });
 
