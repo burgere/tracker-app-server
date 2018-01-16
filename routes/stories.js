@@ -15,6 +15,8 @@ var config = require('../config');
       }
     })
         .then((response) => {
+          res.set('Content-Type', 'application/json');
+          res.set('Access-Control-Allow-Origin', '*');
           res.json(circularJson.stringify(response))
      }) 
   });
