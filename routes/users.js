@@ -6,13 +6,14 @@ var config = require('../config');
 
 /* GET users listing. */
  router.get('/', function(req, res, next) {
+   
    axios.get( 
      config.TRACKER_API_BASE_URL + '/projects/' + config.PROJECT_IDS.astronaut, {
      headers: {
        'X-TrackerToken': config.TRACKER_API_TOKEN
       }
-     })
-     .then((response) => {
+    })
+        .then((response) => {
        res.json(response.body)
      }) 
   });

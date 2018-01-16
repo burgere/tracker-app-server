@@ -3,7 +3,7 @@ const config = {
     PROJECT_IDS: {
         astronaut: "1991497"
     },
-    TRACKER_API_TOKEN: process.env.PIVOTAL_TRACKER_TOKEN
+    TRACKER_API_TOKEN: process.env.PIVOTAL_TRACKER_API_TOKEN
 }
 
 module.exports = config
