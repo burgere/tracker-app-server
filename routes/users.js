@@ -14,6 +14,7 @@ var config = require('../config');
       }
     })
         .then((response) => {
+        console.log(res.json(response));
        res.json(response.body)
      }) 
   });
