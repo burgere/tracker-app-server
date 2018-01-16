@@ -32,6 +32,21 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+app.get('/users/post', function(req, res, next) {
+  request.get({
+  uri: config.TRACKER_API_BASE_URL + "/projects/" + config.PROJECT_IDS.astronaut
+   + "/stories",
+   headers: {
+     'X-TrackerToken': config.TRACKER_API_TOKEN
+   }
+},
+  (err, response, body) => {
+    if (!err && response.statusCode === 200) {
+      res.send(body)
+    }
+  });
+});
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
