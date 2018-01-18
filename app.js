@@ -8,6 +8,7 @@ var config = require('./config');
 
 var index = require('./routes/index');
 var stories = require('./routes/stories');
+var people = require('./routes/people');
 
 var app = express();
 
@@ -25,27 +26,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/stories', stories);
+app.use('/people', people);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
-});
-
-app.get('/users/post', function(req, res, next) {
-  request.get({
-  uri: config.TRACKER_API_BASE_URL + "/projects/" + config.PROJECT_IDS.astronaut
-   + "/stories",
-   headers: {
-     'X-TrackerToken': config.TRACKER_API_TOKEN
-   }
-},
-  (err, response, body) => {
-    if (!err && response.statusCode === 200) {
-      res.send(body)
-    }
-  });
 });
 
 // error handler
