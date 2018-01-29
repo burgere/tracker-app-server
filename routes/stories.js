@@ -48,7 +48,7 @@ var _ = require('underscore');
 
  function buildIndexedListOfUsers(userData) {
   let filteredUserResponseData = _.filter(userData, (person) => {
-    return person["role"] === "member"   
+    return person["role"] === "member" || person["role"] === "owner"   
    }); 
 
    let userNames = _.map(filteredUserResponseData, (membership) => {
